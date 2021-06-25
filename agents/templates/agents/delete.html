@@ -1,0 +1,16 @@
+{% extends 'leads/list.html' %}
+{% load tailwind_filters %}
+{% block content %}
+    <div class="max-w-lg mx-auto">
+        <div class="py-5  border-t border-gray-200">
+            <h4>Are you sure to delete the agent?</h4>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p|crispy }}
+            <input type="submit" value="Delete">
+        </form>
+        <a class="w-full bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded-md" href="{% url 'agents:agent-list' %}">Main menu</a>
+    </div>
+
+{% endblock %}
