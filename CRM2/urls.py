@@ -3,6 +3,8 @@ from django.urls import path, include
 from leads import urls
 import leads
 import agents
+import API
+from API import urls
 from agents import urls
 from leads import views
 from django.conf import settings
@@ -11,6 +13,8 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(API.urls)),
+
     path('leads/', include(leads.urls, namespace='leads')),
     path('agents/', include(agents.urls, namespace='agents')),
 
